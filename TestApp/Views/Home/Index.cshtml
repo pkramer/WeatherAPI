@@ -1,0 +1,30 @@
+﻿@model TestApp.Models.OpenWeatherMap
+<div>
+    <h2>Get the weather forcast for any city in the world</h2>
+    <h2>Select country, city or postal code</h2>
+    <h4>Please use ISO 3166 country codes. If no country is entered then the US is assumed</h4>
+    <h4>If both the city and the postal code are entered then only the city will be used</h4>
+    @using (Html.BeginForm("Index", "Home", new { country = "", city = "", postalCode = "" }, FormMethod.Post))
+    {
+        <div>Country: </div>
+        <div>
+            @Html.TextBoxFor(m => m.Country)
+        </div>
+
+        <div>City: </div>
+        <div>
+            @Html.TextBoxFor(m => m.City)
+        </div>
+
+        <div>Postal Code: </div>
+        <div>
+            @Html.TextBoxFor(m => m.PostalCode)
+        </div>
+
+        @Html.Raw(Model.Report)
+
+        <input type="submit" value="Submit" />
+    }
+</div>
+
+
